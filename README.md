@@ -6,7 +6,7 @@ You can try it on [Website](http://stassemenyuk.github.io/weather-app/)
 ## Usage
 
 In this app you can:  
--create the list of cities and view their weather
--remove city from list
--search only for one city
+-create the list of cities and view their weather  
+-remove city from list  
+-search only for one city  
 -clear list
