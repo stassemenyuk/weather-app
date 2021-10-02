@@ -16,7 +16,7 @@ export default function WeatherPage() {
       setNames([name]);
       setTitle(`Weather in ${name}`);
     } else {
-      setNames((prev) => [...prev, name]);
+      setNames((prev) => [name, ...prev]);
       setTitle('Your list');
     }
   }
