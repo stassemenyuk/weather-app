@@ -9,6 +9,9 @@ export default function WeatherPage() {
   const [title, setTitle] = useState('Your list');
 
   function findCityByName(name, add) {
+    if (name === '') {
+      return;
+    }
     if (!add) {
       setNames([name]);
       setTitle(`Weather in ${name}`);

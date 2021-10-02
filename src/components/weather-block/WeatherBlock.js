@@ -16,36 +16,26 @@ export default function WeatherBlock(props) {
         return response.json();
       })
       .then((data) => {
-        if (
-          data.cod === '404' ||
-          data.cod === '401' ||
-          data.cod === 429 ||
-          data.cod === 401 ||
-          data.cod === 404 ||
-          data.cod === 400 ||
-          data.cod === '400'
-        ) {
-          setError({ code: data.cod, message: data.message });
-        } else {
-          setError(null);
-          setLoadingIndicator(true);
-          setData({
-            city: data.name,
-            country: data.sys.country,
-            temperature: Math.floor(data.main.temp - 273) + '°C',
-            feelLike: Math.floor(data.main.feels_like - 273) + '°C',
-            minTemperature: Math.floor(data.main.temp_min - 273) + '°C',
-            maxTemperature: Math.floor(data.main.temp_max - 273) + '°C',
-            description: data.weather[0].main,
-            icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
-            timezoneOffset: data.timezone,
-          });
-          setCurrentDate(
-            new Date(new Date().getTime() + data.timezone * 1000)
-              .toUTCString()
-              .replace(/ GMT$/, ''),
-          );
-        }
+        setError(null);
+        setLoadingIndicator(true);
+        setData({
+          city: data.name,
+          country: data.sys.country,
+          temperature: Math.floor(data.main.temp - 273) + '°C',
+          feelLike: Math.floor(data.main.feels_like - 273) + '°C',
+          minTemperature: Math.floor(data.main.temp_min - 273) + '°C',
+          maxTemperature: Math.floor(data.main.temp_max - 273) + '°C',
+          description: data.weather[0].main,
+          icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+          timezoneOffset: data.timezone,
+        });
+        setCurrentDate(
+          new Date(new Date().getTime() + data.timezone * 1000).toUTCString().replace(/ GMT$/, ''),
+        );
+      })
+      .catch(() => {
+        setLoadingIndicator(true);
+        setError(true);
       });
   }
 
@@ -66,11 +56,6 @@ export default function WeatherBlock(props) {
     };
   }, [data]);
 
-  function refreshData() {
-    getData(props.name);
-    console.log('refresh');
-  }
-
   const {
     city,
     country,
@@ -88,7 +73,7 @@ export default function WeatherBlock(props) {
         <div className="close-btn" onClick={props.onRemove}>
           X
         </div>
-        Error: {error.message}
+        Something went wrong... :{'('}
       </div>
     );
   } else if (!isLoaded) {
@@ -98,9 +83,6 @@ export default function WeatherBlock(props) {
       <div className="weather-card">
         <div className="close-btn" onClick={props.onRemove}>
           X
-        </div>
-        <div className="refresh-btn" onClick={refreshData}>
-          ⭯
         </div>
         <div className="weather__date">{currentDate}</div>
         <div className="weather__location">

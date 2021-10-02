@@ -31,20 +31,13 @@
   font-weight: 700;
 }
 
-.close-btn,
-.refresh-btn {
+.close-btn {
   position: absolute;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
   padding: 10px;
   cursor: pointer;
   top: 0;
-}
-
-.refresh-btn {
-  left: 0;
-}
-
-.close-btn {
   right: 0;
 }
 
