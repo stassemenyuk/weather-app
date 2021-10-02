@@ -66,6 +66,11 @@ export default function WeatherBlock(props) {
     };
   }, [data]);
 
+  function refreshData() {
+    getData(props.name);
+    console.log('refresh');
+  }
+
   const {
     city,
     country,
@@ -78,7 +83,14 @@ export default function WeatherBlock(props) {
   } = data;
 
   if (error) {
-    return <div className="weather-card">Error: {error.message}</div>;
+    return (
+      <div className="weather-card">
+        <div className="close-btn" onClick={props.onRemove}>
+          X
+        </div>
+        Error: {error.message}
+      </div>
+    );
   } else if (!isLoaded) {
     return <div className="weather-card">Loading...</div>;
   } else {
@@ -86,6 +98,9 @@ export default function WeatherBlock(props) {
       <div className="weather-card">
         <div className="close-btn" onClick={props.onRemove}>
           X
+        </div>
+        <div className="refresh-btn" onClick={refreshData}>
+          ⭯
         </div>
         <div className="weather__date">{currentDate}</div>
         <div className="weather__location">

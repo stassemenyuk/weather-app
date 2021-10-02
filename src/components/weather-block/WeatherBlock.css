@@ -31,13 +31,21 @@
   font-weight: 700;
 }
 
-.close-btn {
+.close-btn,
+.refresh-btn {
   position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 10px;
-  padding: 14px;
+  font-size: 14px;
+  padding: 10px;
   cursor: pointer;
+  top: 0;
+}
+
+.refresh-btn {
+  left: 0;
+}
+
+.close-btn {
+  right: 0;
 }
 
 @media (max-width: 992px) {
