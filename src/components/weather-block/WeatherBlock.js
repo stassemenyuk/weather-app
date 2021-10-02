@@ -73,7 +73,10 @@ export default function WeatherBlock(props) {
         <div className="close-btn" onClick={props.onRemove}>
           X
         </div>
-        Something went wrong... :{'('}
+        <div className="error__text">
+          Something went wrong... :{'('} <br />
+          Maybe you write the name wrong
+        </div>
       </div>
     );
   } else if (!isLoaded) {

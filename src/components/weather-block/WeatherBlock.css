@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding: 15px;
+  margin: 15px 0;
 }
 
 .weather__date {
@@ -41,6 +42,10 @@
   right: 0;
 }
 
+.error__text {
+  font-size: 16px;
+}
+
 @media (max-width: 992px) {
   .weather-card {
     padding: 10px;
@@ -59,5 +64,11 @@
 
   .weather__text {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 475px) {
+  .weather-card {
+    flex: 0 0 100%;
   }
 }
