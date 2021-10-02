@@ -1,0 +1,15 @@
+.weather-panel {
+  background: rgb(0, 255, 255);
+  padding: 20px;
+}
+
+.weather-panel__title {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.weather-panel__blocks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
