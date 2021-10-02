@@ -25,7 +25,7 @@ export default function WeatherBlock(props) {
           feelLike: Math.floor(data.main.feels_like - 273) + '°C',
           minTemperature: Math.floor(data.main.temp_min - 273) + '°C',
           maxTemperature: Math.floor(data.main.temp_max - 273) + '°C',
-          description: data.weather[0].main,
+          description: data.weather[0].description,
           icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
           timezoneOffset: data.timezone,
         });
@@ -91,16 +91,19 @@ export default function WeatherBlock(props) {
         <div className="weather__location">
           {city} , {country}
         </div>
+
+        <div className="weather__today">
+          {minTemperature} to {maxTemperature}
+        </div>
         <div className="weather__temperature">
           <div className="weather__temperature__icon">
             <img src={icon} alt="icon" />
           </div>
-          <div className="weather__temperature__number">{temperature}</div>
+          <div className="weather__temperature__number">
+            {temperature} <br /> <span className="temperature__feeling">Feels like {feelLike}</span>
+          </div>
         </div>
-        <div className="weather__text">
-          Feels like {feelLike}. {description}. Temperature today: from {minTemperature} to{' '}
-          {maxTemperature}.
-        </div>
+        <div className="weather__short-description">{description}</div>
       </div>
     );
   }

@@ -25,9 +25,21 @@
 }
 .weather__temperature__number {
   font-size: 36px;
+  line-height: 36px;
 }
 
-.weather__text {
+.temperature__feeling {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.weather__short-description {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.weather__today {
   font-size: 14px;
   font-weight: 700;
 }
