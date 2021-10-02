@@ -41,10 +41,7 @@ export default function WeatherPage() {
           </a>
         </div>
         <SearchPanel findCity={findCityByName} />
-        <WeatherPanel onRemove={removeItem} names={names} title={title} />
-        <button onClick={clearList} className="btn btn-danger">
-          Clear list
-        </button>
+        <WeatherPanel onClear={clearList} onRemove={removeItem} names={names} title={title} />
       </div>
     </div>
   );

@@ -4,6 +4,12 @@
 }
 
 .weather-panel__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title__text {
   font-size: 36px;
   font-weight: 700;
 }

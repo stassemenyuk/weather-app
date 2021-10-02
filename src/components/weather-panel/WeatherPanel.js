@@ -9,7 +9,14 @@ export default function WeatherPanel(props) {
   });
   return (
     <div className="weather-panel">
-      <div className="weather-panel__title">{props.title}</div>
+      <div className="weather-panel__title">
+        <div className="title__text">{props.title}</div>
+        <div className="title_clearBtn">
+          <button onClick={props.onClear} className="btn btn-danger">
+            Clear list
+          </button>
+        </div>
+      </div>
       <div className="weather-panel__blocks">{blocks}</div>
     </div>
   );
