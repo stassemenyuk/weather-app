@@ -13,9 +13,8 @@ export default function SearchPanel(props) {
         action=""
         onSubmit={(e) => {
           e.preventDefault();
-          setInput('');
-          setAdd(true);
           props.findCity(input, add);
+          setInput('');
         }}>
         <input
           className="form-control"
